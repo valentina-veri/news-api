@@ -1,0 +1,33 @@
+<div class="container">
+
+    <div class="d-flex justify-content-between">
+        <h1>Benvenut* nella tua area riservata</h1>
+        <a class="mt-3" routerLink="">Torna alla Home</a>
+        <button type="button" class="btn btn-info" (click)="logout()">Logout</button>
+    </div>
+
+    <p class="mt-5"> Cerca gli articoli digitando un termine di ricerca</p>
+
+    <div class="d-flex justify-content-between">
+        <i class="bi bi-search" style="font-size: 25px;"></i>
+        <input class="form-control me-2" type="search" placeholder="Cerca" aria-label="Search" [(ngModel)]="query"
+            (input)="getArticoli()">
+    </div>
+    <div class="mt-5" *ngIf="query.length>0">
+        <div class="card mb-3" *ngFor="let a of articoli">
+            <div class="card-header">
+                {{a.title}}
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">{{a.author}}</h5>
+                <p class="card-text">{{a.content}}</p>
+                <p class="card-text">{{a.description}}</p>
+            </div>
+        </div>
+    </div>
+
+
+    <p class="text-danger mt-5" *ngIf="message">Attenzione la tua ricerca non è andata a buon fine!</p>
+
+</div>
+

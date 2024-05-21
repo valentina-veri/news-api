@@ -1,0 +1,25 @@
+<p class="text-center mt-5">Registrati per accedere alla tua area
+    riservata!</p>
+<div class="d-flex justify-content-center mt-5">
+
+    <form #LaForm="ngForm" (ngSubmit)="register()">
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Email
+                address</label>
+            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com"
+                [(ngModel)]="model.email" #inputEmail="ngModel" name="email">
+        </div>
+        <label for="inputPassword5" class="form-label">Password</label>
+        <input type="password" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock"
+            [(ngModel)]="model.password" #inputPassword="ngModel" name="password">
+        <div class="mb-3">
+            <label for="name" class="form-label mt-3">Nome utente</label>
+            <input type="text" class="form-control" id="name" placeholder="name" [(ngModel)]="model.name"
+                #inputName="ngModel" name="name">
+        </div>
+        <button class="btn btn-primary" type="submit">Registrati</button>
+
+    </form>
+    
+</div>
+<p class="text-center text-danger mt-5">{{errorMessage}}</p>
